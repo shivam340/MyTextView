@@ -33,15 +33,18 @@ public class MyCustomView extends View {
         super(context, attrs);
         mContext = context;
 
-
         //get the attributes specified in attrs.xml using the name we included
         TypedArray typedArray = mContext.getTheme().obtainStyledAttributes(attrs,
                 R.styleable.myStyle, 0, 0);
 
-        viewColor = typedArray.getInteger(R.styleable.myStyle_circleColor, Color.BLACK);
-        textColor = typedArray.getInteger(R.styleable.myStyle_labelColor, Color.WHITE);
-        label = typedArray.getString(R.styleable.myStyle_circleLabel);
+        try {
 
+            viewColor = typedArray.getInteger(R.styleable.myStyle_circleColor, Color.BLACK);
+            textColor = typedArray.getInteger(R.styleable.myStyle_labelColor, Color.WHITE);
+            label = typedArray.getString(R.styleable.myStyle_circleLabel);
+        }finally {
+            typedArray.recycle();
+        }
     }
 
     @Override
