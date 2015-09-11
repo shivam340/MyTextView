@@ -1,21 +1,45 @@
 package test.com.mytextview.views;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
+
+import test.com.mytextview.R;
 
 /**
  * Created by shivam on 9/11/15.
  */
 public class MyCustomView extends View {
 
+    private Context mContext = null;
+
+    private int viewColor = Color.BLACK;  // use default color
+    private int textColor = Color.WHITE;
+    private String label = "Hello";
+
+
+
     public MyCustomView(Context context) {
         super(context);
+        mContext = context;
     }
 
     public MyCustomView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mContext = context;
+
+
+        //get the attributes specified in attrs.xml using the name we included
+        TypedArray typedArray = mContext.getTheme().obtainStyledAttributes(attrs,
+                R.styleable.myStyle, 0, 0);
+
+        viewColor = typedArray.getInteger(R.styleable.myStyle_circleColor, Color.BLACK);
+        textColor = typedArray.getInteger(R.styleable.myStyle_labelColor, Color.WHITE);
+        label = typedArray.getString(R.styleable.myStyle_circleLabel);
+
     }
 
     @Override
@@ -31,6 +55,10 @@ public class MyCustomView extends View {
 
             invalidate() mark the area defined by dirty as needing to be drawn. If the view is visible, onDraw(android.graphics.Canvas) will be called at some point in the future.
         */
+
+
+
+
 
     }
 
