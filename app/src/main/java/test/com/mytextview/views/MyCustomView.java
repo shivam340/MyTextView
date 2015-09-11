@@ -132,6 +132,17 @@ public class MyCustomView extends View {
         invalidate();
         requestLayout();
 
+        //http://developer.android.com/training/custom-views/create-view.html
+
+
+        //Notice that setViewColor calls invalidate() and requestLayout().
+        // These calls are crucial to ensure that the view behaves reliably.
+        // You have to invalidate the view after any change to its properties that might change its appearance,
+        // so that the system knows that it needs to be redrawn.
+        // Likewise, you need to request a new layout if a property changes that might affect the size or shape of the view.
+        // Forgetting these method calls can cause hard-to-find bugs.
+
+
     }
 
     public int getTextColor() {
