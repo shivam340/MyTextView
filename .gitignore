@@ -1,0 +1,62 @@
+.gradle
+<<<<<<< HEAD
+gradlew
+gradlew.bat
+build/
+/.idea/workspace.xml
+.idea/
+/local.properties
+=======
+<<<<<<< HEAD
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Eclipse project files
+.classpath
+.project
+
+
+# Android Studio
+gradlew
+gradlew.bat
+build/
+.idea/
+>>>>>>> 2bbdc4331bedc34ae42e5af41fe62315ddbbd227
+/*/local.properties
+/*/out
+/*/*/build
+/*/*/production
+*.iml
+*~
+*.swp
+*.ipr
+*.iws
+
+# backup files
+*.bak
+
+
+# crashlytics
+com_crashlytics_export_strings.xml
+crashlytics-build.properties
+
