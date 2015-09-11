@@ -32,9 +32,20 @@ public class MyTextView extends View {
             invalidate() mark the area defined by dirty as needing to be drawn. If the view is visible, onDraw(android.graphics.Canvas) will be called at some point in the future.
         */
 
-
     }
 
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        //onMeasure() is your opportunity to tell Android how big you want your custom view to be
+        // dependent on the layout constraints provided by the parent;
+
+        // to see more description about onMeasure -> http://stackoverflow.com/questions/12266899/onmeasure-custom-view-explanation
+
+        setMeasuredDimension(widthMeasureSpec, heightMeasureSpec);
+    }
 
 
 }
