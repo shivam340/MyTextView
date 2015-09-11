@@ -60,6 +60,7 @@ public class MyCustomView extends View {
 
 
 
+
     }
 
 
@@ -76,4 +77,39 @@ public class MyCustomView extends View {
     }
 
 
+    public int getViewColor() {
+        return viewColor;
+    }
+
+    public void setViewColor(int viewColor) {
+        this.viewColor = viewColor;
+
+        //redraw the view
+        invalidate();
+        requestLayout();
+
+    }
+
+    public int getTextColor() {
+        return textColor;
+    }
+
+    public void setTextColor(int textColor) {
+        this.textColor = textColor;
+        //redraw the view
+        invalidate();
+        requestLayout();
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+
+        //redraw the view
+        invalidate();
+        requestLayout();
+    }
 }
