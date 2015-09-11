@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -20,6 +21,7 @@ public class MyCustomView extends View {
     private int textColor = Color.WHITE;
     private String label = "Hello";
 
+    private Paint circlePaint = null;
 
 
     public MyCustomView(Context context) {
@@ -60,6 +62,45 @@ public class MyCustomView extends View {
 
 
 
+
+
+        //paint object for drawing in onDraw
+        circlePaint = new Paint();
+
+        //get half of the width and height as we are working with a circle
+        int viewWidthHalf = this.getMeasuredWidth()/2;
+        int viewHeightHalf = this.getMeasuredHeight()/2;
+
+
+
+        //get the radius as half of the width or height, whichever is smaller
+        //subtract ten so that it has some space around it
+        int radius = 0;
+        if(viewWidthHalf>viewHeightHalf) {
+            radius = viewHeightHalf - 10;
+        }
+        else {
+            radius = viewWidthHalf - 10;
+        }
+
+        circlePaint.setStyle(Paint.Style.FILL);
+        circlePaint.setAntiAlias(true);
+        //set the paint color using the circle color specified
+        circlePaint.setColor(viewColor);
+
+        canvas.drawCircle(viewWidthHalf, viewHeightHalf, radius, circlePaint);
+
+
+
+        // draw text
+        //set the text color using the color specified
+        circlePaint.setColor(textColor);
+        //set text properties
+        circlePaint.setTextAlign(Paint.Align.CENTER);
+        circlePaint.setTextSize(50);
+
+        //draw the text using the string attribute and chosen properties
+        canvas.drawText(label, viewWidthHalf, viewHeightHalf, circlePaint);
 
     }
 
